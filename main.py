@@ -1,6 +1,10 @@
 def main():
-    my_fib = Fib()
+    if input("cached?  y/n") == "y":
+      my_fib = FibCached()
+    else:
+      my_fib = Fib()
     print(my_fib.fib(10))
+  
 
 class Fib:
     beginning_nums = (0, 1, 1)
@@ -12,7 +16,7 @@ class Fib:
 class FibCached(Fib):
     def __init__(self):
       self.cache = {}
-    def __init__(self, in_num):
+    def fib(self, in_num):
       if in_num not in self.cache:
         self.cache[in_num] = super().fib(in_num)
       return self.cache[in_num]

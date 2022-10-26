@@ -9,4 +9,12 @@ class Fib:
           return self.beginning_nums[in_num]
         return self.fib(in_num - 1 ) + self.fib(in_num - 2)
 
+class FibCached(Fib):
+    def __init__(self):
+      self.cache = {}
+    def __init__(self, in_num):
+      if in_num not in self.cache:
+        self.cache[in_num] = super().fib(in_num)
+      return self.cache[in_num]
+
 main()
